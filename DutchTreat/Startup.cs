@@ -32,6 +32,12 @@ namespace DutchTreat
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseNodeModules(env);
+
+            app.UseMvc(cfg => {
+                cfg.MapRoute("Default", 
+                    "/{controller}/{action}/{id?}", 
+                    new { controller = "App", Action = "Index" });
+            });
         }
     }
 }
